@@ -16,5 +16,7 @@ class Controller(BaseController):
       error = (target_lataccel - current_lataccel)
       self.error_integral += error
       error_diff = error - self.prev_error
+
       self.prev_error = error
+      
       return self.p * error + self.i * self.error_integral + self.d * error_diff
